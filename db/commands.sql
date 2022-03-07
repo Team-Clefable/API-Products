@@ -4,9 +4,9 @@
 
 \COPY products_table from '/Users/SarahMa/Clefable-API-Products/db/allData/products.csv' DELIMITER ',' CSV HEADER;
 
-\COPY styles_table (id, name, sale_price, original_price, default_style, product_id) from '/Users/SarahMa/Clefable-API-Products/db/allData/styles.csv' WITH (FORMAT CSV, NULL 'null', HEADER);
+\COPY styles_table (style_id, name, sale_price, original_price, default_style, product_id) from '/Users/SarahMa/Clefable-API-Products/db/allData/styles.csv' WITH (FORMAT CSV, NULL 'null', HEADER);
 
-\COPY skus_table (id, style_id, size, quantity) from '/Users/SarahMa/SDC-data/skus.csv' DELIMITER ',' CSV HEADER;
+\COPY skus_table (id, style_id, size, quantity) from '/Users/SarahMa/Clefable-API-Products/db/allData/skus.csv' DELIMITER ',' CSV HEADER;
 
 \COPY photos_table from '/Users/SarahMa/Clefable-API-Products/db/allData/photos.csv' DELIMITER ',' CSV HEADER;
 

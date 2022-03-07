@@ -23,7 +23,7 @@ CREATE TABLE products_table (
 
 DROP TABLE IF EXISTS styles_table CASCADE;
 CREATE TABLE styles_table (
-    id INT PRIMARY KEY,
+    style_id INT PRIMARY KEY,
     name VARCHAR,
     sale_price DECIMAL(12, 2) NULL,
     original_price DECIMAL(12, 2),
@@ -60,7 +60,7 @@ CREATE TABLE features_table (
 DROP TABLE IF EXISTS skus_table CASCADE;
 CREATE TABLE skus_table (
     id INT PRIMARY KEY,
-    style_id INT references styles_table (id),
+    style_id INT references styles_table (style_id),
     size VARCHAR(10),
     quantity INT
 );
@@ -72,7 +72,7 @@ CREATE TABLE skus_table (
 DROP TABLE IF EXISTS photos_table CASCADE;
 CREATE TABLE photos_table (
     id INT PRIMARY KEY,
-    style_id INT references styles_table (id),
+    style_id INT references styles_table (style_id),
     pic_url VARCHAR,
     thumbnail_url VARCHAR
 );

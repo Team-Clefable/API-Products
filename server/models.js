@@ -26,7 +26,7 @@ module.exports = {
     try {
       let id = req.params.id;
       const selectStyles = await db.getStyles(id);
-      res.send(selectStyles.rows);
+      res.send(selectStyles);
     } catch(err) {
       console.log('ERRor in models getStyles', err);
       res.status(404).send(err);
