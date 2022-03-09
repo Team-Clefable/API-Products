@@ -4,7 +4,7 @@ module.exports = {
   getAll: async function(req, res) {
     try {
       const selectAll = await db.getAll();
-      res.send(selectAll.rows);
+      res.status(200).send(selectAll.rows);
     } catch(err) {
       console.log('ERRor in models getALl');
       res.status(404).send(err);
@@ -15,7 +15,7 @@ module.exports = {
     try {
       let id = req.params.id;
       const selectProduct = await db.getOne(id);
-      res.send(selectProduct);
+      res.status(200).send(selectProduct);
     } catch(err) {
       console.log('ERRor in models getOne', err);
       res.status(404).send(err);
@@ -26,7 +26,7 @@ module.exports = {
     try {
       let id = req.params.id;
       const selectStyles = await db.getStyles(id);
-      res.send(selectStyles);
+      res.status(200).send(selectStyles);
     } catch(err) {
       console.log('ERRor in models getStyles', err);
       res.status(404).send(err);
@@ -37,7 +37,7 @@ module.exports = {
     try {
       let id = req.params.id;
       const relatedProducts = await db.getRelated(id);
-      res.send(relatedProducts);
+      res.status(200).send(relatedProducts);
     } catch(err) {
       console.log('ERRor in models getRelated');
       res.status(404).send(err);
