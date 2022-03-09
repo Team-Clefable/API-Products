@@ -6,7 +6,7 @@ module.exports = {
       const selectAll = await db.getAll();
       res.status(200).send(selectAll.rows);
     } catch(err) {
-      console.log('ERRor in models getALl');
+      console.log('ERRor in models getALl', err);
       res.status(404).send(err);
     }
   },
