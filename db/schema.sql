@@ -32,7 +32,7 @@ CREATE TABLE styles_table (
 );
 
 
-------------------------------s-------------------------------------------------
+-------------------------------------------------------------------------------
 --            features
 -------------------------------------------------------------------------------
 
@@ -47,15 +47,6 @@ CREATE TABLE features_table (
 -------------------------------------------------------------------------------
 --            skus
 -------------------------------------------------------------------------------
-
--- DROP TABLE IF EXISTS skus_temp CASCADE;
--- CREATE TABLE skus_temp (
---     id INT PRIMARY KEY,
---     style_id INT references styles_table (id),
---     size VARCHAR(10),
---     quantity INT
--- )
-
 
 DROP TABLE IF EXISTS skus_table CASCADE;
 CREATE TABLE skus_table (
@@ -90,3 +81,10 @@ CREATE TABLE related_table (
 );
 -------------------------------------------------------------------------------
 
+-- Creating Secondary Indexes
+
+CREATE INDEX product_id_index ON styles_table(product_id);
+CREATE INDEX style_id_index ON photos_table(style_id);
+CREATE INDEX style_id2_index ON skus_table(style_id);
+CREATE INDEX product_id2_index ON related_table(current_product_id);
+CREATE INDEX product_id3_index ON features_table(product_id);

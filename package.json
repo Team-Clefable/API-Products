@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start:server": "npx nodemon server/index.js"
   },
   "repository": {
@@ -24,5 +24,9 @@
     "express": "^4.17.3",
     "node-csv": "^0.1.2",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "jest-pg": "^1.3.3"
   }
 }

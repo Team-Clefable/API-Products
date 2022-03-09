@@ -14,9 +14,3 @@
 
 \COPY related_table from '/Users/SarahMa/Clefable-API-Products/db/allData/related.csv' DELIMITER ',' CSV HEADER;
 
-
--- Alter Some Tables Here
-
--- ALTER TABLE products_table
--- ADD COLUMN features VARCHAR ARRAY;
--- SET features = array[(select )]
