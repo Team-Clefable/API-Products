@@ -4,7 +4,7 @@ const credentials = {
   user: 'SarahMa',
   host: 'localhost',
   database: 'products',
-  password: '',
+  password: 'root',
   port: 5432
 };
 
