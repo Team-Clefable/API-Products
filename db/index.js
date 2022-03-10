@@ -8,6 +8,7 @@ const credentials = {
   port: 5432
 };
 
+const pool = new Pool(credentials);
 
 module.exports = {
   getAll: async function poolConnect1() {
