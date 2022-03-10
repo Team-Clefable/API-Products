@@ -10,8 +10,8 @@ app.get('/products/:id/styles', models.getStyles);
 
 app.get('/products/:id/related', models.getRelated);
 
-app.get('/loaderio-01ee2201a1d45c621f7cb1f7d49bfde7.txt', (req, res) => {
-  res.status(200).send('loaderio-01ee2201a1d45c621f7cb1f7d49bfde7');
+app.get('/loaderio-cdb9dd42004cce02c46b09e4705b2e1a.txt', (req, res) => {
+  res.status(200).send('loaderio-cdb9dd42004cce02c46b09e4705b2e1a');
 })
 
 app.listen(3000, () => {
