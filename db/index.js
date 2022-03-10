@@ -8,19 +8,19 @@ const credentials = {
   port: 5432
 };
 
+const pool = new Pool(credentials);
 
 module.exports = {
   getAll: async function poolConnect1() {
-    const pool = new Pool(credentials);
+
     const queryString = "SELECT id, name, slogan, description, category default_price FROM products_table LIMIT 5;";
     const allProducts = await pool.query(queryString);
-    await pool.end();
     return allProducts;
   },
 
 
   getOne: async function poolConnect2(id) {
-    const pool = new Pool(credentials);
+
     const featureString = `SELECT feature, value FROM features_table WHERE product_id = ${id}`;
     const productString = `SELECT products_table.id, products_table.name, products_table.slogan, products_table.description, products_table.category, products_table.default_price FROM products_table WHERE products_table.id =${id}`;
 
@@ -33,12 +33,12 @@ module.exports = {
 
     oneProduct[0].features = oneFeature;
 
-    await pool.end();
+
     return oneProduct;
   },
 
   getStyles: async function poolConnect3(id) {
-    const pool = new Pool(credentials);
+
 
     // const testQuery = "SELECT styles_table.style_id, styles_table.name, styles_table.original_price, styles_table.sale_price, styles_table.default_style, skus_table.id, skus_table.style_id, skus_table.quantity, skus_table.size, photos_table.style_id, photos_table.pic_url, photos_table.thumbnail_url FROM styles_table, skus_table, photos_table WHERE styles_table.product_id = 1 AND skus_table.style_id = styles_table.style_id AND styles_table.style_id = photos_table.style_id";
 
@@ -53,7 +53,7 @@ module.exports = {
     const stylesData = await pool.query(stylesQuery);
     const skusData = await pool.query(skusQuery);
     const photosData = await pool.query(photosQuery);
-    await pool.end();
+
 
     // const test = testData.rows;
     const styles = stylesData.rows;
@@ -109,12 +109,12 @@ module.exports = {
   },
 
   getRelated: async function poolConnect4(id) {
-    const pool = new Pool(credentials);
+
     // const relatedQuery = `SELECT related_table.current_product_id AS product_id, ARRAY_AGG(related_table.related_product_id) AS related_ids FROM related_table GROUP BY related_table.current_product_id HAVING ${id}= ANY(ARRAY_AGG(related_table.current_product_id))`;
     const relatedQuery = `SELECT related_product_id FROM related_table WHERE current_product_id = ${id}`;
     const relatedProductsData = await pool.query(relatedQuery);
     const relatedProducts = relatedProductsData.rows;
-    await pool.end();
+
 
     const allRelatedProducts = [];
     for (entry of relatedProducts) {
