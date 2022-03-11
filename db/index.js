@@ -6,7 +6,7 @@ const credentials = {
   host: process.env.host,
   database: process.env.database,
   password: process.env.password,
-  port: process.env.port: 5432
+  port: process.env.port
 };
 
 const pool = new Pool(credentials);
